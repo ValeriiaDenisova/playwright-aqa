@@ -1,4 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineConfig({
     testDir: './tests',                  // Каталог с тестами
@@ -15,6 +18,11 @@ export default defineConfig({
         ignoreHTTPSErrors: true,           // Игнорировать ошибки HTTPS
         video: 'retain-on-failure',        // Записывать видео при падении теста
         screenshot: 'only-on-failure',     // Делать скриншот при падении теста
+        baseURL: process.env.BASE_URL,
+        httpCredentials: {
+            username: process.env.USERNAME,
+            password: process.env.PASSWORD,
+        },
     },
     projects: [
         {

@@ -1,4 +1,6 @@
 import {test, expect, Locator} from '@playwright/test';
+require('dotenv').config();
+
 class LoginPageQauto {
 
     signUpButton: Locator
@@ -21,7 +23,10 @@ class LoginPageQauto {
         this.signUpButton = page.getByRole('button', {name: 'Sign up'})
     }
     async navigate() {
-        await this.page.goto('https://guest:welcome2qauto@qauto.forstudy.space');
+        const url = process.env.BASE_URL;
+        const username = process.env.USERNAME;
+        const password = process.env.PASSWORD;
+        await this.page.goto('https://' + username + ':' + password + '@' + url);
         await this.signUpButton.click()
     }
     async setUsername(username){
