@@ -11,8 +11,8 @@ export class GaragePage {
 
     async addCar(brand: string, model: string, mileage: string) {
         await this.page.click('button:has-text("Add Car")');
-        // await this.page.fill('#addCarBrand', brand);
-        // await this.page.fill('#addCarModel', model);
+        await this.page.selectOption('#addCarBrand', brand);
+        await this.page.selectOption('#addCarModel', model);
         await this.page.fill('#addCarMileage', mileage);
         await this.page.getByRole('button', {name: 'Add'})
     }

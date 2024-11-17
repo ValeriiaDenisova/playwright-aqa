@@ -8,7 +8,7 @@ type CustomFixtures = {
 const test = baseTest.extend<CustomFixtures>({
     userGaragePage: async ({ page }, use) => {
         const garagePage = new GaragePage(page);
-        await use(garagePage); // Передаем объект GaragePage в тест
+        await use(garagePage);
     },
 });
 

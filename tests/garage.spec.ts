@@ -8,7 +8,8 @@ test.describe('Garage Page Tests', () => {
 
         const brand = 'Audi';
         const model = 'TT';
-        await userGaragePage.addCar(brand, model, '1000');
+        const mileage = '1000'
+        await userGaragePage.addCar(brand, model, mileage);
 
         const isCarVisible = await userGaragePage.isCarVisible(brand, model);
         expect(isCarVisible).toBeTruthy();
