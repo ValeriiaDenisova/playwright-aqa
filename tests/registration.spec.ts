@@ -17,6 +17,12 @@ test.describe('Registration tests', () => {
 
     test.beforeEach(async ({page}) => {
         await page.goto('https://guest:welcome2qauto@qauto.forstudy.space');
+
+        /* так как в playwright.config.ts указано storageState: 'storageState.json',
+        то для того, чтобы протестировать регистрацию, нужно вначале вылогинится
+         */
+        await page.locator('#userNavDropdown').click()
+        await page.getByRole('button', {name: 'Logout'}).click()
         await page.getByRole('button', {name: 'Sign up'}).click()
 
         nameInput = page.locator('#signupName')

@@ -1,4 +1,5 @@
 import {test, expect, Locator} from '@playwright/test';
+
 require('dotenv').config();
 
 class LoginPageQauto {
@@ -22,30 +23,44 @@ class LoginPageQauto {
         this.registerButton = page.getByRole('button', {name: 'Register'})
         this.signUpButton = page.getByRole('button', {name: 'Sign up'})
     }
+
     async navigate() {
         const url = process.env.BASE_URL;
         const username = process.env.USERNAME;
         const password = process.env.PASSWORD;
-        await this.page.goto('https://' + username + ':' + password + '@' + url);
+        await this.page.goto('https://' + username + ':' + password + '@qauto.forstudy.space');
+
+        /* так как в playwright.config.ts указано storageState: 'storageState.json',
+            то для того, чтобы протестировать регистрацию, нужно вначале вылогинится
+        */
+        await this.page.locator('#userNavDropdown').click()
+        await this.page.getByRole('button', {name: 'Logout'}).click()
         await this.signUpButton.click()
     }
-    async setUsername(username){
+
+    async setUsername(username) {
         await this.nameInput.fill(username)
     }
-    async setLastName(lastName){
+
+    async setLastName(lastName) {
         await this.lastNameInput.fill(lastName)
     }
-    async setEmail(email){
+
+    async setEmail(email) {
         await this.emailInput.fill(email)
     }
-    async setPassword(password){
+
+    async setPassword(password) {
         await this.passwordInput.fill(password)
     }
-    async setReenterPassword(password){
+
+    async setReenterPassword(password) {
         await this.reenterPasswordInput.fill(password)
     }
-    async clickRegisterButton(){
+
+    async clickRegisterButton() {
         await this.registerButton.click()
     }
 }
+
 module.exports = LoginPageQauto;
