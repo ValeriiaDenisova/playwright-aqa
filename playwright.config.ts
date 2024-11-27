@@ -23,6 +23,7 @@ export default defineConfig({
             username: process.env.USERNAME,
             password: process.env.PASSWORD,
         },
+        storageState: 'storageState.json',
     },
     projects: [
         {
