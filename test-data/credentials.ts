@@ -4,8 +4,8 @@ export const users = {
     mainUser: {
         name: "TestName",
         lastName: "TestLastName",
-        email: "michael@gmail.com",
-        password: "ZSgeVQhuU3qkvlG",
+        email: "dmytrijevavi@gmail.com",
+        password: "John_D0e",
     },
     user2: {
         name: "TestName2",
