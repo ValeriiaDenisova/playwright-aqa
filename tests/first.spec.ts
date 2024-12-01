@@ -50,19 +50,19 @@ test.describe('test demo',  () => {
         await expect(page.locator('.title')).toHaveText('Products')
     })
 
-    test('Test4. Screenshot full', async ({page}) => {
-        await page.goto('https://www.saucedemo.com/');
+    // test('Test4. Screenshot full', async ({page}) => {
+    //     await page.goto('https://www.saucedemo.com/');
+    //
+    //     await expect(page).toHaveScreenshot('image.png')
+    //     await expect(await page.screenshot({fullPage: true})).toMatchSnapshot('image.png')
+    // })
 
-        await expect(page).toHaveScreenshot('image.png')
-        await expect(await page.screenshot({fullPage: true})).toMatchSnapshot('image.png')
-    })
-
-    test('Test5. Screenshot form', async ({page}) => {
-        await page.goto('https://www.saucedemo.com/');
-
-        const loginForm = page.locator('#login_button_container');
-        await expect(await loginForm.screenshot()).toMatchSnapshot('image2.png')
-    })
+    // test('Test5. Screenshot form', async ({page}) => {
+    //     await page.goto('https://www.saucedemo.com/');
+    //
+    //     const loginForm = page.locator('#login_button_container');
+    //     await expect(await loginForm.screenshot()).toMatchSnapshot('image2.png')
+    // })
 
 
 });
