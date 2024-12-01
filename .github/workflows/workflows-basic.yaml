@@ -36,7 +36,7 @@ jobs:
           docker exec playwright-container npx playwright test
 
       # Stop and remove the Docker container after tests
-      - name: Clean up
-        run: |
-          docker stop playwright-container
-          docker rm playwright-container
+#      - name: Clean up
+#        run: |
+#          docker stop playwright-container
+#          docker rm playwright-container
