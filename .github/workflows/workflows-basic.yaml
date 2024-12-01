@@ -23,7 +23,7 @@ jobs:
           docker run -d --name playwright-container \
             -v ${{ github.workspace }}:/e2e \
             -w /e2e \
-            mcr.microsoft.com/playwright:v1.39.0-jammy tail -f /dev/null
+            mcr.microsoft.com/playwright:v1.48.2-jammy tail -f /dev/null
 
       # Install dependencies inside the Docker container
       - name: Install dependencies
